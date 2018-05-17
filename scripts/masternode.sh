@@ -186,5 +186,5 @@ echo && echo "Gravium Masternode Setup Complete!"
 
 echo "If you put correct PrivKey and VPS IP the daemon should be running."
 echo "Wait 2 minutes then run gravium-cli getinfo to check blocks."
-echo "when fully synced you can start ALIAS on local wallet and finally check here with gravium-cli masternode status."
+echo "When fully synced you can start ALIAS on local wallet and finally check here with gravium-cli masternode status."
 echo && echo
