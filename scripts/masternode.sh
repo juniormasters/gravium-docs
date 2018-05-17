@@ -1,44 +1,41 @@
 #/bin/bash
-
 clear
-cd ~
-echo "███████████████████████████████████████████████████████████████████████████████"
-echo "█████████████████████████████▓█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███████████████████████████████"
-echo "██████████████████████████▓█▒█▒▒▒█▓▓▓▓▓▓▓▓▓▓▓█▓▓▓█▓█▓██████████████████████████"
-echo "█████████████████████████▓▓█▒▒█▒▒▒▒▒██▓▓▓██▓▓▓▓▓█▓▓█▓▓█████████████████████████"
-echo "████████████████████████▓▓▓█▒▒▒▒▒▒▒▒▒▒███▓▓▓▓▓▓█▓▓▓█▓▓▓████████████████████████"
-echo "███████████████████████▓▓▓▓█▒▒▒▒▒██████▓██████▓▓▓▓▓█▓▓▓▓███████████████████████"
-echo "█████████████████████▓▓▓▓▓▓█▒▒▒████▓▓▓▓▓▓▓▓▓████▓▓▓█▓▓▓▓▓██████████████████████"
-echo "████████████████████▓▓▓▓▓▓▓█████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█████▓▓▓▓▓▓▓████████████████████"
-echo "███████████████████▓▓▓▓▓█▓▒███▓▓▓▓▓▓███████▓▓▓▓▓████▓▓█▓▓▓▓▓███████████████████"
-echo "██████████████████▓▓██▒▒▒▒▒███▓▓▓▓██████████████████▓▓▓▓▓██▓▓██████████████████"
-echo "██████████████████▓▒▒▒▒▒▒▒▒███▓▓▓▓██████▓▓▓▓▓▓▓▓▓███▓▓▓▓▓▓▓▓▓██████████████████"
-echo "██████████████████▒▒▒▒▒▒▒▒▒███▓▓▓▓██████▓▓▓▓▓▓▓▓▓███▓▓▓▓▓▓▓▓▓██████████████████"
-echo "██████████████████▓▓██▒▒▒▒▒███▓▓▓▓███████████▓▓▓▓███▓▓▓▓▓██▓▓██████████████████"
-echo "███████████████████▓▓▓▓██▒▒███▓▓▓▓▓▓███████▓▓▓▓▓▓███▓▓█▓▓▓▓▓███████████████████"
-echo "████████████████████▓▓▓▓▓▓▓█████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█████▓▓▓▓▓▓▓████████████████████"
-echo "██████████████████████▓▓▓▓▓█▓▓▓████▓▓▓▓▓▓▓▓▓█████▓▓█▓▓▓▓▓▓█████████████████████"
-echo "███████████████████████▓▓▓▓█▓▓▓▓▓██████▓██████▓▓▓▓▓█▓▓▓▓███████████████████████"
-echo "████████████████████████▓▓▓█▓▓▓▓▓▒▒▒▒▓███▓░░░░▒▓▓▓▓█▓▓▓████████████████████████"
-echo "█████████████████████████▓▓█▓▓█▒▒▒▒▒▓█▒▒▒██░░░░░█▓▓█▓▓█████████████████████████"
-echo "██████████████████████████▓█▓█▒▒▒██▒▒▒▒▒▒▒▒▒██░░░█▓█▓██████████████████████████"
-echo "█████████████████████████████▓█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▓█████████████████████████████"
-echo "███████████████████████████████████████████████████████████████████████████████"
+cd /root
+echo "██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗    ████████╗ ██████╗"
+echo "██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝    ╚══██╔══╝██╔═══██╗"
+echo "██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗         ██║   ██║   ██║"
+echo "██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝         ██║   ██║   ██║"
+echo "╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗       ██║   ╚██████╔╝"
+echo " ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝       ╚═╝    ╚═════╝ "
+echo "                                                                                    "
+echo "             ██████╗ ██████╗  █████╗ ██╗   ██╗██╗██╗   ██╗███╗   ███╗"
+echo "            ██╔════╝ ██╔══██╗██╔══██╗██║   ██║██║██║   ██║████╗ ████║"
+echo "            ██║  ███╗██████╔╝███████║██║   ██║██║██║   ██║██╔████╔██║"
+echo "            ██║   ██║██╔══██╗██╔══██║╚██╗ ██╔╝██║██║   ██║██║╚██╔╝██║"
+echo "            ╚██████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║╚██████╔╝██║ ╚═╝ ██║"
+echo "             ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝"
+                                                                                        
 echo && echo && echo
-sleep 3
-## This script is a comiplation of Work from around the internet, and changed around accordingly to suit this project.
-## Thank you to everyone for the work you have done in this space and I hope this helps another project out there.
+sleep 2
+
+# Check if is root
+if [ "$(whoami)" != "root" ]; then
+  echo "Script must be run as user: root"
+  exit -1
+fi
+
 # Check for systemd
-systemctl --version >/dev/null 2>&1 || { echo "systemd is required. Are you using Ubuntu 16.04?"  >&2; exit 1; }
+systemctl --version >/dev/null 2>&1 || { echo "You must use Ubuntu 16.04 (Xenial)."  >&2; exit 1; }
 
 # Gather input from user
-read -e -p "Masternode Private Key (e.g. 7edfjLCUzGczZi3JQw8GHp434R9kNY33eFyMGeKRymkB56G4324h) : " key
+echo "Please enter your Masternode Private Key"
+read -e -p "e.g. (8tagsuahsAHAJshjvhs88asadijsuyas98aqsaziucdplmkh75sb) : " key
 if [[ "$key" == "" ]]; then
     echo "WARNING: No private key entered, exiting!!!"
     echo && exit
 fi
-read -e -p "Hello! VPS Server IP Address and Masternode Port : " ip
-echo && echo "Pressing ENTER will use the default value for the next prompts. It's ok, you can just click enter."
+read -e -p "VPS Server IP Address and Masternode Port like IP:7979 : " ip
+echo && echo "Pressing ENTER will use the default value for the next prompts."
 echo && sleep 3
 read -e -p "Add swap space? (Recommended) [Y/n] : " add_swap
 if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
@@ -46,14 +43,13 @@ if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
     if [[ "$swap_size" == "" ]]; then
         swap_size="2G"
     fi
-fi    
+fi
 read -e -p "Install Fail2ban? (Recommended) [Y/n] : " install_fail2ban
-read -e -p "Install UFW and configure ports? (Recommended) [Y/n] : " UFW
 
 # Add swap if needed
 if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
     if [ ! -f /swapfile ]; then
-        echo && echo "Adding some swap space..."
+        echo && echo "Adding swap space..."
         sleep 3
         sudo fallocate -l $swap_size /swapfile
         sudo chmod 600 /swapfile
@@ -65,33 +61,34 @@ if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
         echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
         echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.conf
     else
-        echo && echo "Swap file detected, we don't need it- skipping the swap!"
+        echo && echo "WARNING: Swap file detected, skipping add swap!"
         sleep 3
     fi
 fi
 
 
 # Update system 
-echo && echo "Some system upgrades"
+echo && echo "Upgrading system..."
 sleep 3
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
 # Add Berkely PPA
-echo && echo "BA BA BA Bitcoin PPA..."
+echo && echo "Installing bitcoin PPA..."
 sleep 3
 sudo apt-get -y install software-properties-common
 sudo apt-add-repository -y ppa:bitcoin/bitcoin
 sudo apt-get -y update
 
 # Install required packages
-echo && echo "We need to download and install some stuff"
+echo && echo "Installing base packages..."
 sleep 3
 sudo apt-get -y install \
 build-essential \
 libtool \
 autotools-dev \
 automake \
+unzip \
 pkg-config \
 libssl-dev \
 bsdmainutils \
@@ -108,31 +105,39 @@ libboost-thread-dev \
 libdb4.8-dev \
 libdb4.8++-dev \
 libminiupnpc-dev \
-python-virtualenv
+python-virtualenv 
 
 # Install fail2ban if needed
 if [[ ("$install_fail2ban" == "y" || "$install_fail2ban" == "Y" || "$install_fail2ban" == "") ]]; then
-    echo && echo "fail2ban to BANHAMMER"
+    echo && echo "Installing fail2ban..."
     sleep 3
     sudo apt-get -y install fail2ban
     sudo service fail2ban restart 
 fi
 
-# Install firewall if needed
-if [[ ("$UFW" == "y" || "$UFW" == "Y" || "$UFW" == "") ]]; then
-    echo && echo "UFW so we can forward ports"
-    sleep 3
-    sudo apt-get -y install ufw
-    echo && echo "Configuring ports..."
-    sleep 3
-    sudo ufw default deny incoming
-    sudo ufw default allow outgoing
-    sudo ufw allow ssh
-    sudo ufw allow 3385/tcp
-    sudo ufw allow 7979/tcp
-    echo "y" | sudo ufw enable
-    echo && echo "Ports Ready =D"
-fi
+# Edit/Create config file for Gravium
+echo && echo "Creating your data folder and files..."
+sleep 3
+sudo mkdir /root/.gravium
+
+rpcuser=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
+rpcpassword=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
+sudo touch /root/.gravium/gravium.conf
+echo '
+rpcuser='$rpcuser'
+rpcpassword='$rpcpassword'
+rpcallowip=127.0.0.1
+listen=1
+server=1
+rpcport=3385
+daemon=0
+logtimestamps=1
+maxconnections=256
+externalip='$ip'
+masternode=1
+masternodeprivkey='$key'
+' | sudo -E tee /root/.gravium/gravium.conf
+
 
 # Download and install from git
 echo && echo "Let's build Gravium"
@@ -149,73 +154,35 @@ sleep 3
 ./configure
 make
 
-# Test Gravium
+# Move to bin folder and test
 echo && echo "Let's take this baby for a spin =D"
 sleep 3
 cd src
-./graviumd -daemon
-./gravium-cli stop
+chmod +x graviumd
+chmod +x gravium-cli
+chmod +x gravium-tx
 
-# Create config
-echo && echo "Making a config for Gravium"
-sleep 3
-rpcuser=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
-rpcpassword=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
-sudo touch /root/.gravium/gravium.conf
-echo '
-rpcuser='$rpcuser'
-rpcpassword='$rpcpassword'
-rpcallowip=127.0.0.1
-listen=1
-server=1
-rpcport=3385
-daemon=0 # required for systemd
-logtimestamps=1
-maxconnections=256
-externalip='$ip'
-masternodeprivkey='$key'
-masternode=1
-' | sudo -E tee /root/.gravium/gravium.conf
+# Move binaries do lib folder
+sudo mv gravium-cli /usr/bin/gravium-cli
+sudo mv gravium-tx /usr/bin/gravium-tx
+sudo mv graviumd /usr/bin/graviumd
 
-# Setup systemd service
-echo && echo "Almost There...."
-sleep 3
-sudo touch /etc/systemd/system/graviumd.service
-echo '[Unit]
-Description=graviumd
-After=network.target
-[Service]
-Type=simple
-User=root
-ExecStart=/root/gravium/src/graviumd -daemon
-ExecStop=/root/gravium/src/gravium-cli stop
-Restart=on-abort
-[Install]
-WantedBy=multi-user.target
-' | sudo -E tee /etc/systemd/system/graviumd.service
-chmod +x /etc/systemd/system/graviumd.service
-sudo systemctl enable graviumd
-sudo systemctl start graviumd
-killall graviumd
+#run daemon
+graviumd -daemon
+sleep 5
 
 # Download and install sentinel
-echo && echo "Installing Sentinel..."
-sleep 3
-cd
-sudo apt-get -y install python3-pip
-sudo pip3 install virtualenv
-sudo apt-get install screen
-sudo git clone https://github.com/Gravium/sentinel.git /root/sentinel
-cd /root/sentinel
-virtualenv venv
-. venv/bin/activate
-pip install -r requirements.txt
-export EDITOR=nano
-(crontab -l -u masternode 2>/dev/null; echo '* * * * * cd /root/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1') | sudo crontab -u root -
 
-cd ~
 
-# cd to gravium-cli for final, no real need to run cli with commands as service when you can just cd there
+# Create a cronjob for making sure graviumd runs after reboot
+if ! crontab -l | grep "@reboot graviumd -daemon"; then
+  (crontab -l ; echo "@reboot graviumd -daemon") | crontab -
+fi
+
+# Finished
 echo && echo "Gravium Masternode Setup Complete!"
 
-echo && echo "Please type in cd /root/gravium/src and run ./graviumd -daemon and then ./gravium-cli getblockcount after a few minutes"
+echo "If you put correct PrivKey and VPS IP the daemon should be running."
+echo "Wait 2 minutes then run gravium-cli getinfo to check blocks."
+echo "when fully synced you can start ALIAS on local wallet and finally check here with gravium-cli masternode status."
+echo && echo
