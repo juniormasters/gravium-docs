@@ -35,7 +35,7 @@ if [[ "$key" == "" ]]; then
     echo "WARNING: No private key entered, exiting!!!"
     echo && exit
 fi
-read -e -p "VPS Server IP Address and Masternode Port like IP:7979 : " ip
+read -e -p "VPS Server IP Address and Masternode Port like IP:11000 : " ip
 echo && echo "Pressing ENTER will use the default value for the next prompts."
 echo && sleep 3
 read -e -p "Add swap space? (Recommended) [Y/n] : " add_swap
@@ -66,7 +66,6 @@ if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
         sleep 3
     fi
 fi
-
 
 # Update system 
 echo && echo "Upgrading system..."
@@ -141,25 +140,13 @@ masternodeprivkey='$key'
 ' | sudo -E tee /root/.gravium/gravium.conf
 
 
-# Download and install from git
-echo && echo "Let's build Gravium"
-sleep 3
-sudo git clone https://github.com/Gravium/gravium.git
+# Download binaries for Linux
+mkdir gravium
 cd gravium
-chmod 755 autogen.sh
-chmod 755 share/genbuild.sh
-
-# Install
-echo && echo "This may take a while, grab a snickers"
-sleep 3
-./autogen.sh
-./configure
-make
-
+wget https://github.com/Gravium/gravium/releases/download/REL/gravium-x86_64-pc-linux-gnu.tar.gz
+tar xzvf gravium-x86_64-pc-linux-gnu.tar.gz
+cd bin
 # Move to bin folder and test
-echo && echo "Let's take this baby for a spin =D"
-sleep 3
-cd src
 chmod +x graviumd
 chmod +x gravium-cli
 chmod +x gravium-tx
@@ -174,6 +161,19 @@ graviumd -daemon
 sleep 5
 
 # Download and install sentinel
+echo && echo "Installing Sentinel..."
+sleep 3
+cd
+sudo apt-get -y install python3-pip
+sudo pip3 install virtualenv
+sudo apt-get install screen
+sudo git clone https://github.com/Gravium/sentinel.git /root/sentinel-gravium
+cd /root/sentinel-gravium
+virtualenv venv
+. venv/bin/activate
+pip install -r requirements.txt
+export EDITOR=nano
+(crontab -l -u root 2>/dev/null; echo '* * * * * cd /root/sentinel-gravium && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1') | sudo crontab -u root -
 
 
 # Create a cronjob for making sure graviumd runs after reboot
