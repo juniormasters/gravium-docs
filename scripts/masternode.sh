@@ -35,7 +35,7 @@ if [[ "$key" == "" ]]; then
     echo "WARNING: No private key entered, exiting!!!"
     echo && exit
 fi
-read -e -p "VPS Server IP Address and Masternode Port like IP:11000 : " ip
+read -e -p "VPS Server IP Address and Masternode Port like IP:11010 : " ip
 echo && echo "Pressing ENTER will use the default value for the next prompts."
 echo && sleep 3
 read -e -p "Add swap space? (Recommended) [Y/n] : " add_swap
@@ -130,7 +130,7 @@ rpcpassword='$rpcpassword'
 rpcallowip=127.0.0.1
 listen=1
 server=1
-rpcport=3385
+rpcport=11000
 daemon=0
 logtimestamps=1
 maxconnections=256
