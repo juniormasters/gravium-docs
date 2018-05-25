@@ -2,6 +2,7 @@
 
 clear
 cd /root
+echo && echo
 echo "██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗    ████████╗ ██████╗"
 echo "██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝    ╚══██╔══╝██╔═══██╗"
 echo "██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗         ██║   ██║   ██║"
@@ -89,7 +90,6 @@ libtool \
 autotools-dev \
 automake \
 unzip \
-git \
 pkg-config \
 libssl-dev \
 bsdmainutils \
@@ -119,11 +119,11 @@ fi
 # Edit/Create config file for Gravium
 echo && echo "Creating your data folder and files..."
 sleep 3
-sudo mkdir /root/.gravium
+sudo mkdir /root/.graviumcore
 
 rpcuser=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
 rpcpassword=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
-sudo touch /root/.gravium/gravium.conf
+sudo touch /root/.graviumcore/gravium.conf
 echo '
 rpcuser='$rpcuser'
 rpcpassword='$rpcpassword'
@@ -137,7 +137,7 @@ maxconnections=256
 externalip='$ip'
 masternode=1
 masternodeprivkey='$key'
-' | sudo -E tee /root/.gravium/gravium.conf
+' | sudo -E tee /root/.graviumcore/gravium.conf
 
 
 # Download binaries for Linux
