@@ -69,17 +69,10 @@ if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
 fi
 
 # Update system 
-echo && echo "Upgrading system..."
+echo && echo "Upgrading system and install initial dependencies"
 sleep 3
 sudo apt-get -y update
 sudo apt-get -y upgrade
-
-# Add Berkely PPA
-echo && echo "Installing bitcoin PPA..."
-sleep 3
-sudo apt-get -y install software-properties-common
-sudo apt-add-repository -y ppa:bitcoin/bitcoin
-sudo apt-get -y update
 
 # Install required packages
 echo && echo "Installing base packages..."
