@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 clear
 cd ~
@@ -26,7 +26,7 @@ echo "████████████████████████�
 echo "███████████████████████████████████████████████████████████████████████████████"
 echo && echo && echo
 sleep 3
-## This script is a comiplation of Work from around the internet, and changed around accordingly to suit this project.
+## This script is a compilation of Work from around the internet, and changed around accordingly to suit this project.
 ## Thank you to everyone for the work you have done in this space and I hope this helps another project out there.
 # Check for systemd
 systemctl --version >/dev/null 2>&1 || { echo "systemd is required. Are you using Ubuntu 16.04?"  >&2; exit 1; }
@@ -69,7 +69,6 @@ if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
         sleep 3
     fi
 fi
-
 
 # Update system 
 echo && echo "Some system upgrades"
@@ -208,4 +207,4 @@ cd ~
 
 echo && echo "Gravium Masternode Setup Complete!"
 
-echo && echo "Please let the chain sync 5 minutes then run 'gravium-cli masternode status' then start alias in wallet. If get error: incorrect rpcuser or rpcpassword do 'killall graviumd' then 'graviumd -daemon' "
+echo && echo "Please let the chain sync 5 minutes then start alias in wallet then run 'gravium-cli masternode status'. If get error: incorrect rpcuser or rpcpassword do 'killall graviumd' then 'graviumd -daemon' "
