@@ -37,8 +37,8 @@ if [[ "$key" == "" ]]; then
     echo "WARNING: No private key entered, exiting!!!"
     echo && exit
 fi
-read -e -p "Hello! VPS Server IP Address and Masternode Port : " ip
-echo && echo "Pressing ENTER will use the default value for the next prompts. It's ok, you can just click enter."
+read -e -p "Hello! Please input your VPS Server IP Address and Masternode Port(11010) " ip
+echo && echo "Pressing ENTER will use default values for the next prompts. It's ok, you can click enter. Seriously, just click enter for each."
 echo && sleep 3
 read -e -p "Add swap space? (Recommended) [Y/n] : " add_swap
 if [[ ("$add_swap" == "y" || "$add_swap" == "Y" || "$add_swap" == "") ]]; then
@@ -128,75 +128,61 @@ if [[ ("$UFW" == "y" || "$UFW" == "Y" || "$UFW" == "") ]]; then
     sudo ufw default deny incoming
     sudo ufw default allow outgoing
     sudo ufw allow ssh
-    sudo ufw allow 3385/tcp
-    sudo ufw allow 7979/tcp
+    sudo ufw allow 11000/tcp
+    sudo ufw allow 11010/tcp
     echo "y" | sudo ufw enable
     echo && echo "Ports Ready =D"
 fi
 
-# Download and install from git
-echo && echo "Let's build Gravium"
-sleep 3
-sudo git clone https://github.com/Gravium/gravium.git
-cd gravium
-chmod 755 autogen.sh
-chmod 755 share/genbuild.sh
+#Download pre-compiled Gravium and run
+cd
+#Select OS architecture
+    if [ `getconf LONG_BIT` = "64" ]
+        then
+            wget https://github.com/Gravium/gravium/releases/download/v1.0.1/graviumcore-1.0.1-linux64.tar.gz
+            tar -zxvf graviumcore-1.0.1-linux64.tar.gz
+    else
+        wget https://github.com/Gravium/gravium/releases/download/v1.0.1/graviumcore-1.0.1-linux32.tar.gz
+        tar -zxvf graviumcore-1.0.1-linux32.tar.gz
+    fi
+    
+cd /root/graviumcore-1.0.1/bin
+chmod +x graviumd
+chmod +x gravium-cli
+chmod +x gravium-tx
 
-# Install
-echo && echo "This may take a while, grab a snickers"
-sleep 3
-./autogen.sh
-./configure
-make
+# Move binaries do lib folder
+sudo mv gravium-cli /usr/bin/gravium-cli
+sudo mv gravium-tx /usr/bin/gravium-tx
+sudo mv graviumd /usr/bin/graviumd
 
-# Test Gravium
-echo && echo "Let's take this baby for a spin =D"
-sleep 3
-cd src
-./graviumd -daemon
-./gravium-cli stop
+sleep 10
 
 # Create config
 echo && echo "Making a config for Gravium"
 sleep 3
+cd
+sudo mkdir /root/.graviumcore
 rpcuser=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
 rpcpassword=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
-sudo touch /root/.gravium/gravium.conf
+sudo touch /root/.graviumcore/gravium.conf
 echo '
 rpcuser='$rpcuser'
 rpcpassword='$rpcpassword'
 rpcallowip=127.0.0.1
 listen=1
 server=1
-rpcport=3385
+rpcport=11000
 daemon=0 # required for systemd
 logtimestamps=1
 maxconnections=256
 externalip='$ip'
 masternodeprivkey='$key'
 masternode=1
-' | sudo -E tee /root/.gravium/gravium.conf
+' | sudo -E tee /root/.graviumcore/gravium.conf
 
-# Setup systemd service
-echo && echo "Almost There...."
-sleep 3
-sudo touch /etc/systemd/system/graviumd.service
-echo '[Unit]
-Description=graviumd
-After=network.target
-[Service]
-Type=simple
-User=root
-ExecStart=/root/gravium/src/graviumd -daemon
-ExecStop=/root/gravium/src/gravium-cli stop
-Restart=on-abort
-[Install]
-WantedBy=multi-user.target
-' | sudo -E tee /etc/systemd/system/graviumd.service
-chmod +x /etc/systemd/system/graviumd.service
-sudo systemctl enable graviumd
-sudo systemctl start graviumd
-killall graviumd
+#run daemon
+graviumd -daemon
 
 # Download and install sentinel
 echo && echo "Installing Sentinel..."
@@ -211,11 +197,15 @@ virtualenv venv
 . venv/bin/activate
 pip install -r requirements.txt
 export EDITOR=nano
-(crontab -l -u masternode 2>/dev/null; echo '* * * * * cd /root/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1') | sudo crontab -u root -
+(crontab -l -u root 2>/dev/null; echo '* * * * * cd /root/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1') | sudo crontab -u root -
+
+# Create a cronjob for making sure graviumd runs after reboot
+if ! crontab -l | grep "@reboot graviumd -daemon"; then
+  (crontab -l ; echo "@reboot graviumd -daemon") | crontab -
+fi
 
 cd ~
 
-# cd to gravium-cli for final, no real need to run cli with commands as service when you can just cd there
 echo && echo "Gravium Masternode Setup Complete!"
 
-echo && echo "Please type in cd /root/gravium/src and run ./graviumd -daemon and then ./gravium-cli getblockcount after a few minutes"
+echo && echo "Please let the chain sync 5 minutes then run 'gravium-cli masternode status' then start alias in wallet. If get error: incorrect rpcuser or rpcpassword do 'killall graviumd' then 'graviumd -daemon' "
