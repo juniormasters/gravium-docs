@@ -5,6 +5,7 @@ cd ~
 
 # stop daeomn 
 gravium-cli stop
+sleep 5
 
 # download new binaries and untar
 wget https://github.com/Gravium/gravium/releases/download/v1.0.2/graviumcore-1.0.2-linux64.tar.gz
