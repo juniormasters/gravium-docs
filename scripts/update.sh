@@ -6,12 +6,12 @@ cd ~
 # stop daeomn 
 gravium-cli stop
 
-# download new binaries
+# download new binaries and untar
 wget https://github.com/Gravium/gravium/releases/download/v1.0.2/graviumcore-1.0.2-linux64.tar.gz
-tar xzfv graviumcore-1.0.2.linux64.tar.gz
+tar xzfv graviumcore-1.0.2-linux64.tar.gz
 cd graviumcore-1.0.2/bin
 
-# apply persmissions and move to /usr/bin folder
+# apply permissions and move to /usr/bin folder
 chmod +x graviumd
 chmod +x gravium-cli
 chmod +x gravium-tx
