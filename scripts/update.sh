@@ -23,4 +23,4 @@ mv gravium-tx /usr/bin/gravium-tx
 mv graviumd /usr/bin/graviumd
 
 # run and reindex
-graviumd -daemon -reindex
+graviumd -daemon -rescan -reindex
