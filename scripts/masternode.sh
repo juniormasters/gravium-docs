@@ -136,8 +136,8 @@ masternodeprivkey='$key'
 # Download binaries for Linux
 mkdir gravium
 cd gravium
-wget https://github.com/Gravium/gravium/releases/download/REL/gravium-x86_64-pc-linux-gnu.tar.gz
-tar xzvf gravium-x86_64-pc-linux-gnu.tar.gz
+wget https://github.com/Gravium/gravium/releases/download/v1.0.2/graviumcore-1.0.2-linux64.tar.gz
+tar xzvf graviumcore-1.0.2-linux64.tar.gz
 cd bin
 # Move to bin folder and test
 chmod +x graviumd
