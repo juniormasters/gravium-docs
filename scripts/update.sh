@@ -7,6 +7,10 @@ cd ~
 gravium-cli stop
 sleep 5
 
+# remove data chain files/folders
+cd /root/.graviumcore
+rm -fr blocks database chainstate db.log mncache.dat mnpayments.dat peers.dat fee_estimates.dat banlist.dat netfulfilled.dat governance.dat .lock
+
 # download new binaries and untar
 wget https://github.com/Gravium/gravium/releases/download/v1.0.2/graviumcore-1.0.2-linux64.tar.gz
 tar xzfv graviumcore-1.0.2-linux64.tar.gz
@@ -23,4 +27,4 @@ mv gravium-tx /usr/bin/gravium-tx
 mv graviumd /usr/bin/graviumd
 
 # run and reindex
-graviumd -daemon -rescan -reindex
+graviumd -daemon -reindex
