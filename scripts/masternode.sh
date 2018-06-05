@@ -138,8 +138,8 @@ mkdir gravium
 cd gravium
 wget https://github.com/Gravium/gravium/releases/download/v1.0.2/graviumcore-1.0.2-linux64.tar.gz
 tar xzvf graviumcore-1.0.2-linux64.tar.gz
-cd bin
-# Move to bin folder and test
+cd graviumcore-1.0.2/bin
+# Give permissions, move to bin folder and run
 chmod +x graviumd
 chmod +x gravium-cli
 chmod +x gravium-tx
