@@ -10,6 +10,7 @@ NOTES: PRE_ENABLED status is NOT an issue, just restart local wallet and wait a 
 You need a different IP for each masternode you plan to host
 
 **Wallet Setup Part 1**
+
 Open your wallet on your desktop.
 Click Receive, then click Request and put your Label such as “MN1”
 Copy the Address and Send EXACTLY 1000 GRV to this Address
@@ -45,7 +46,7 @@ You should see 2 lines both with a # to comment them out.
 
 Please make a new line and add:
 
-MN1 (YOUR VPS IP):port masternodeprivkey tx_id digit
+MN1 (YOUR VPS IP):11010 masternodeprivkey tx_id digit
 
 Put your data correctly, save it and close.
 Go to Gravium Wallet, Click Settings, Check “Show Masternodes Tab”
@@ -63,7 +64,7 @@ Digital ocean: https://www.digitalocean.com/community/tutorials/how-to-log-into-
 Other: https://www.webhostface.com/kb/knowledgebase/connecting-to-vps-via-ssh/
 
 Now, Use SSH to Log into your VPS
-We need to install some dependencies. Please copy, paste and hit enter:
+We need to install some dependencies first. Please copy, paste and hit enter:
 
 apt-get update;apt-get upgrade -y;apt-get dist-upgrade -y;apt-get install nano htop git wget unzip -y;apt-get install build-essential libtool autotools-dev automake pkg-config -y;apt-get install libssl-dev libevent-dev bsdmainutils software-properties-common -y;apt-get install libboost-all-dev -y;apt-get install libzmq3-dev libminiupnpc-dev libssl-dev libevent-dev -y;add-apt-repository ppa:bitcoin/bitcoin -y;apt-get update;apt-get install libdb4.8-dev libdb4.8++-dev -y;
 
@@ -133,13 +134,14 @@ rpcallowip=127.0.0.1
 listen=1
 server=1
 daemon=1
-rpcport=3385
+rpcport=11000
 staking=0
-externalip=(YOUR VPS IP):port
+externalip=(YOUR VPS IP):11010
 masternode=1
 masternodeprivkey=masternodeprivkey
 
 **IMPORTANT**
+
 You need to change IP to your VPS IP address, the masternodeprivkey is the one that you got from the main wallet.
 Choose whatever you like for user and password. Note that the port should be BLANK for gravium masternodes and rpcport is 3385 for sentinel.
 
@@ -148,8 +150,8 @@ type Y => Enter The file gravium.conf is now saved!
 
 If you have a firewall running, you need to open the 7979 and 3385 port :
 
-sudo ufw allow 7979/tcp
-sudo ufw allow 3385/tcp
+sudo ufw allow 11010/tcp
+sudo ufw allow 11010/tcp
 sudo ufw enable
 
 Now Let's restart graviumd:
@@ -164,6 +166,7 @@ Wait like 10 mins for your wallet to download the blockchain. You can check the 
 Now we need SENTINEL to fix WATCHDOG EXPIRED issue:
 
 **Install Prerequisites**
+
 Make sure Python version 2.7.x or above is installed:
 
 python --version
@@ -176,6 +179,7 @@ sudo pip3 install virtualenv
 Make sure the local gravium daemon running is latest version
 
 **Install Sentinel**
+
 Clone the Sentinel repo and install Python dependencies.
 
 type in terminal:
@@ -186,6 +190,7 @@ virtualenv ./venv
 ./venv/bin/pip install -r requirements.txt
 
 **Set up Cron**
+
 Set up a crontab entry to call Sentinel every minute:
 
 crontab -e
@@ -195,6 +200,7 @@ In the crontab editor, add the lines below, replace '/home/YOURUSERNAME/sentinel
 * * * * * cd /root/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1
 
 **Test the Configuration**
+
 Test the config by runnings all tests from the sentinel folder you cloned into
 
 ./venv/bin/py.test ./test
@@ -202,11 +208,13 @@ Test the config by runnings all tests from the sentinel folder you cloned into
 With all tests passing and crontab setup, Sentinel will stay in sync with graviumd and the installation is complete
 
 **Configuration**
+
 An alternative (non-default) path to the gravium.conf file can be specified in sentinel.conf:
 
 gravium_conf=/path/to/gravium.conf
 
 **Troubleshooting**
+
 To view debug output, set the SENTINEL_DEBUG environment variable to anything non-zero, then run the script manually:
 
 SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py
@@ -222,12 +230,14 @@ cd /root/gravium/src
 ./gravium-cli getblockcount (needs to be more than 0 to be in sync)
 
 **NOTE:** 
+
 If the Masternode tab isn’t showing, you need to  click settings, check “Show Masternodes Tab” save, and restart the wallet
 If your Masternode does not show, restart the wallet
  
 Now Click “start-all”. Your masternode should be now up and running !
 
 **Checking Your Masternode**
+
 You can check the masternode status by going to the masternode vps and typing:
 
 cd /root/gravium/src/
